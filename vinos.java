@@ -6,6 +6,7 @@
 package home;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  * realiza una solucion alagoritmo de los vinos utilizando vectores, que
@@ -23,210 +24,259 @@ import java.util.Scanner;
 public class vinos {
 
     public static void main(String[] args) {
-        //LECTURA POR TECLADO
+        //LECTURA POR CONSOLA
         Scanner leer = new Scanner(System.in);
 
-        //PRODUCCION POR 12 MESES O CADA MES POR 1 AÑO 
+        //CONTROL PRIMARIO
         //variables
-        int prod_mes;
+        int c1;//continuar en el programa
+        do {
+            //INGRESAR MESES
+            //variables e inicializacion
+            String[] meses = {"enero", "febrero", "marzo", "abril", "mayo", "junio",
+                "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"};
 
-        //inicializacion
-        prod_mes = 12;
+            //INGRESAR VINOS
+            //varaibles e inicializacion
+            String[] vinos = {"manzana", "uva", "blanco"};
 
-        //PRODUCCION DE PRIMER VINO
-        //variables
-        int[] vino1;
+            //PRODUCCION VINO MANZANA
+            //variables e inicializacion
+            double[] vM = new double[meses.length];
 
-        //inicializacion
-        vino1 = new int[prod_mes];
-        
-        //leer produccion de vinos o leer vector
-//        System.out.println("Ingresar produccion del vino 1:");
-        for (int i = 0; i < vino1.length; i++) {
-////            System.out.print("Produccion del mes " + (i + 1) + ":");
-            vino1[i] = (int) (Math.random()* 100) + 1;
-        }
-        
-        //PRODUCCION DE SEGUNDO VINO
-        //variables
-        int[] vino2;
+            //leer produccion
+            JOptionPane.showMessageDialog(null, "Registro de produccion del vino"
+                    + " " + vinos[0]);
+            for (int i = 0; i < meses.length; i++) {
+                vM[i] = Double.parseDouble(JOptionPane.showInputDialog("Produccion "
+                        + "del mes " + meses[i]));
+            }
 
-        //inicializacion
-        vino2 = new int[prod_mes];
-        
-        //leer produccion de vinos o leer vector
-//        System.out.println("Ingresar produccion del vino 2:");
-        for (int i = 0; i < vino2.length; i++) {
-//            System.out.print("Produccion del mes " + (i + 1) + ":");
-            vino2[i] = (int) (Math.random()* 100) + 1;
-        }
-        
-        //PRODUCCION DE TERCER VINO
-        //variables
-        int[] vino3;
+            //PRODUCCION VINO UVA
+            //variables e inicializacion
+            double[] vU = new double[meses.length];
 
-        //inicializacion
-        vino3 = new int[prod_mes];
-        
-        //leer produccion de vinos o leer vector
-//        System.out.println("Ingresar produccion del vino 3:");
-        for (int i = 0; i < vino3.length; i++) {
-//            System.out.print("Produccion del mes " + (i + 1) + ":");
-            vino3[i] = (int) (Math.random()* 100) + 1;
-        }
-        
-        //PROMEDIO DE PRODUCCION VINO 1
-        //variables
-        int sumProV1;
-        double promProV1;
-        
-        //inicializacion
-        sumProV1 = 0;
-        
-        //suma de produccion
-        for (int i = 0; i < vino1.length; i++) {
-            sumProV1 += vino1[i];
-        }
-        
-        //promedio
-        promProV1 = sumProV1 / prod_mes;
-        
-        //PROMEDIO DE PRODUCCION VINO 2
-        //variables
-        int sumProV2;
-        double promProV2;
-        
-        //inicializacion
-        sumProV2 = 0;
-        
-        //suma de produccion
-        for (int i = 0; i < vino2.length; i++) {
-            sumProV2 += vino2[i];
-        }
-        
-        //promedio
-        promProV2 = sumProV2 / prod_mes;
-        
-        //PROMEDIO DE PRODUCCION VINO 3
-        //variables
-        int sumProV3;
-        double promProV3;
-        
-        //inicializacion
-        sumProV3 = 0;
-        
-        //suma de produccion
-        for (int i = 0; i < vino3.length; i++) {
-            sumProV3 += vino3[i];
-        }
-        
-        //promedio
-        promProV3 = sumProV3 / prod_mes;
-        
-        //PROMEDIO DE PRODUCCION DE TODOS LOS VINO POR AÑO
-        //variables
-        double sumProVs;
-        double promProVs;
-        
-        //inicalizacion
-        sumProVs = 0;
-        
-        //suma de promedios de produccin de cada vino
-            sumProVs += promProV1 + promProV2 + promProV3;
-        
-        //promedio
-        promProVs = sumProVs / 3;
-        
-        //MES CON MAYOR PRODUCCION DE UN VINO DADO
-        //variables
-        int opProMes;
-        double prodMay;
-        
-        //inicializacion
-        System.out.println("consultar mes de mayor produccion de un vino\n1.Vino"
-                + " 1\n2.Vino 2\n3.Vino3\nSeleccione una opcion:");
-        opProMes = leer.nextInt();
-              
-        switch (opProMes){
-            case 1:
-                prodMay = 0;
-                for (int i = 0; i < vino1.length; i++) {
-                    if (vino1[i] > prodMay) {
-                        prodMay = vino1[i];
-                    } else {
-                        System.out.println("No hay");
+            //leer produccion
+            JOptionPane.showMessageDialog(null, "Registro de produccion del vino"
+                    + " " + vinos[1]);
+            for (int i = 0; i < meses.length; i++) {
+                vU[i] = Double.parseDouble(JOptionPane.showInputDialog("Produccion "
+                        + "del mes " + meses[i]));
+            }
+
+            //PRODUCCION VINO BLANCO
+            //variables e inicializacion
+            double[] vB = new double[meses.length];
+
+            //leer produccion
+            JOptionPane.showMessageDialog(null, "Registro de produccion del vino"
+                    + " " + vinos[1]);
+            for (int i = 0; i < meses.length; i++) {
+                vB[i] = Double.parseDouble(JOptionPane.showInputDialog("Produccion "
+                        + "del mes " + meses[i]));
+            }
+
+            //PROMEDIO DE PRODUCCION VINO MANZANA
+            //variables
+            double sumProVm;
+            double promProVm;
+
+            //inicializacion
+            sumProVm = 0;
+
+            //suma de produccion
+            for (int i = 0; i < vM.length; i++) {
+                sumProVm += vM[i];
+            }
+
+            //promedio
+            promProVm = sumProVm / vM.length;
+
+            //PROMEDIO DE PRODUCCION DE VINO UVA
+            //variables
+            double sumProVu;
+            double promProVu;
+
+            //inicializacion
+            sumProVu = 0;
+
+            //suma de produccion
+            for (int i = 0; i < vU.length; i++) {
+                sumProVu += vU[i];
+            }
+
+            //promedio
+            promProVu = sumProVu / vU.length;
+
+            //PROMEDIO DE PRODUCCION DE VINO BLANCO
+            //variables
+            double sumProVb;
+            double promProVb;
+
+            //inicializacion
+            sumProVb = 0;
+
+            //suma de produccion
+            for (int i = 0; i < vB.length; i++) {
+                sumProVb += vB[i];
+            }
+
+            //promedio
+            promProVb = sumProVb / vB.length;
+
+            //PRODUCCION TOTAL ANUAL POR VINO
+            double[] prodTotVn = {sumProVm, sumProVu, sumProVb};
+
+            //PROMEDIO DE PRODUCCION ANUAL POR VINO
+            //variables e inicializacion          
+            double[] promProdAnXVn = {promProVm, promProVu, promProVb};
+
+            //CONTROL SECUNDARIO
+            //variables
+            int c2;
+
+            do {
+                //A. MES CON MAYOR PRODUCCION DE VINO POR TIPO DE VINO
+                //variables
+                int opMy;
+                double proMy;
+
+                //inicializacion                
+                opMy = Integer.parseInt(JOptionPane.showInputDialog("consultar mes "
+                        + "de mayor produccion de un vino:\n1." + vinos[0] + "\n2."
+                        + vinos[1] + "\n3." + vinos[2] + "\nSeleccione una opcion:"));
+
+                switch (opMy) {
+                    case 1://manzana
+                        proMy = 0;
+                        for (int i = 0; i < vM.length; i++) {
+                            if (vM[i] > proMy) {
+                                proMy = vM[i];
+                            }
+                        }
+
+                        for (int i = 0; i < vM.length; i++) {
+                            if (vM[i] == proMy) {
+                                JOptionPane.showMessageDialog(null, "Mes con mayor "
+                                        + "produccion de vino " + vinos[0] + "\n"
+                                        + meses[i] + ":" + proMy);
+                            }
+                        }
+                        break;
+                    case 2://uva
+                        proMy = 0;
+                        for (int i = 0; i < vU.length; i++) {
+                            if (vU[i] > proMy) {
+                                proMy = vU[i];
+                            }
+                        }
+
+                        for (int i = 0; i < vU.length; i++) {
+                            if (vU[i] == proMy) {
+                                JOptionPane.showMessageDialog(null, "Mes con mayor "
+                                        + "produccion de vino " + vinos[1] + "\n"
+                                        + meses[i] + ":" + proMy);
+                            }
+                        }
+                        break;
+                    case 3://blanco
+                        proMy = 0;
+                        for (int i = 0; i < vB.length; i++) {
+                            if (vB[i] > proMy) {
+                                proMy = vB[i];
+                            }
+                        }
+
+                        for (int i = 0; i < vB.length; i++) {
+                            if (vB[i] == proMy) {
+                                JOptionPane.showMessageDialog(null, "Mes con mayor "
+                                        + "produccion de vino " + vinos[2] + "\n"
+                                        + meses[i] + ":" + proMy);
+                            }
+                        }
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "opcion invalida");
+                }
+
+                //CONTROL SECUNDARIO
+                c2 = Integer.parseInt(JOptionPane.showInputDialog("Consultar otro "
+                        + "vino\n1.Si\n2.No\nSeleccione una opcion:"));
+            } while (c2 == 1);
+
+            //CONTROL TERCIARIO
+            int c3;
+
+            do {
+                //B.PRODUCCION TOTAL ANUAL POR VINO
+                //variables
+                int opProTotAn;
+
+                //inicializacion
+                opProTotAn = Integer.parseInt(JOptionPane.showInputDialog("consultar "
+                        + "produccion anual por vino\n1.Vino"
+                        + " 1\n2.Vino 2\n3.Vino3\nSeleccione una opcion:"));
+
+                switch (opProTotAn) {
+                    case 1://manzana
+                        JOptionPane.showMessageDialog(null, "produccion anual de vino" + vinos[0] + prodTotVn[0]);
+                        break;
+                    case 2://uva
+                        JOptionPane.showMessageDialog(null, "produccion anual de vino" + vinos[1] + prodTotVn[1]);
+                        break;
+                    case 3://blanco
+                        JOptionPane.showMessageDialog(null, "produccion anual de vino" + vinos[2] + prodTotVn[2]);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "opcion invalida");
+                }
+
+                //CONTROL TERCIARIO
+                c3 = Integer.parseInt(JOptionPane.showInputDialog("Consultar de"
+                        + "nuevo\n1.Si\n2.No\nSeleccione una opcion:"));
+            } while (c3 == 1);
+
+            //C.VINO QUE OBTUVO LA MAYOR PRODUCCION DE VINO
+            //variables
+            double prodVn = prodTotVn[0];
+            int provN = 0;
+
+            //comparar produccion total anual entre vinos
+            for (int i = 0; i < prodTotVn.length; i++) {
+                if (prodTotVn[i] > prodVn) {
+                    prodVn = prodTotVn[i];
+                    provN++;
+                }
+            }
+
+            //escribimos
+            if (prodVn == sumProVm) {
+                JOptionPane.showMessageDialog(null, "Mayor produccion\n" + vinos[0] + prodVn);
+            } else {
+                if (prodVn == sumProVu) {
+                    JOptionPane.showMessageDialog(null, "Mayor produccion\n" + vinos[1] + prodVn);
+                } else {
+                    if (prodVn == sumProVb) {
+                        JOptionPane.showMessageDialog(null, "Mayor produccion\n" + vinos[2] + prodVn);
                     }
                 }
-                
-                System.out.println("Mes con mayor produccion:");
-                for (int i = 0; i < vino1.length; i++) {
-                    if (vino1[i] == prodMay) {
-                        System.out.println((i + 1) + ":" + prodMay);
-                    }
-                }
-                break;
-            case 2:
-                prodMay = 0;
-                for (int i = 0; i < vino2.length; i++) {
-                    if (vino2[i] > prodMay) {
-                        prodMay = vino1[i];
-                    } else {
-                        System.out.println("No hay");
-                    }
-                }
-                
-                System.out.println("Mes con mayor produccion:");
-                for (int i = 0; i < vino2.length; i++) {
-                    if (vino2[i] == prodMay) {
-                        System.out.println((i + 1) + ":" + prodMay);
-                    }
-                }
-                break;
-            case 3:
-                prodMay = 0;
-                for (int i = 0; i < vino3.length; i++) {
-                    if (vino3[i] > prodMay) {
-                        prodMay = vino3[i];
-                    } else {
-                        System.out.println("No hay");
-                    }
-                }
-                
-                System.out.println("Mes con mayor produccion:");
-                for (int i = 0; i < vino3.length; i++) {
-                    if (vino3[i] == prodMay) {
-                        System.out.println((i + 1) + ":" + prodMay);
-                    }
-                }
-                break;
-            default:
-                System.out.println("Opcion invalida");
-        }
-        
-        //PRODUCCION TOTAL ANUAL POR VINO
-        //variables
-        int opProTotAn;
-        
-        //inicializacion
-        System.out.println("consultar produccion anual por vino\n1.Vino"
-                + " 1\n2.Vino 2\n3.Vino3\nSeleccione una opcion:");
-        opProTotAn = leer.nextInt();
-        
-        switch(opProTotAn){
-            case 1:
-                System.out.print("produccion anul de vino 1 " + sumProV1);
-                break;
-            case 2:
-                System.out.print("produccion anul de vino 1 " + sumProV2);
-                break;
-            case 3:
-                System.out.print("produccion anul de vino 1 " + sumProV3);
-                break;
-            default:
-                System.out.println("opcion invalida");
-        }
-        
-        //VINOCON MAYOR PRODUCCION
-        
+            }
+            
+            //D.TOTAL DE PRODUCCION POR MES DE LOS VINOS
+            //variables
+            double [] prodMes = new double[meses.length];
+            String pMes = " ";
+            
+            for (int i = 0; i < meses.length; i++) {
+                prodMes [i] = vM[i] + vU[i] + vB[i];
+                pMes = prodMes + ",";
+            }
+            
+            JOptionPane.showMessageDialog(null, pMes);
+
+            //CONTROL PRIMARIO
+            c1 = Integer.parseInt(JOptionPane.showInputDialog("Continuar en el programa"
+                    + "\n1.Si\n2.No\nSeleccione una opcion:"));
+        } while (c1 == 1);
     }
 }
